@@ -1,0 +1,8 @@
+.title {
+  font-size: 2em;
+}
+
+.container-header {
+  display: flex;
+  align-items: center;
+}

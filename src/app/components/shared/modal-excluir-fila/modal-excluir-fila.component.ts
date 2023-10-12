@@ -1,0 +1,34 @@
+import {Component, Inject, OnInit} from '@angular/core';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+
+export interface DataDialog {
+  data: any;
+}
+
+@Component({
+  selector: 'app-modal-excluir-fila',
+  templateUrl: './modal-excluir-fila.component.html',
+  styleUrls: ['./modal-excluir-fila.component.css']
+})
+export class ModalExcluirFilaComponent implements OnInit{
+
+  dataDialog: any;
+
+  constructor(
+    public modalRef: MatDialogRef<ModalExcluirFilaComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DataDialog
+  ) {}
+
+  ngOnInit() {
+    this.dataDialog = this.data;
+  }
+
+  close(): void {
+    this.modalRef.close();
+  }
+
+  delete(): void {
+    console.log(this.dataDialog);
+  }
+
+}

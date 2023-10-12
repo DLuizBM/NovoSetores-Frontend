@@ -1,0 +1,44 @@
+body {
+  background-color: #21263a;
+}
+
+div.row {
+  width: 100% !important;
+}
+
+.flex-container {
+  display: flex;
+}
+
+.info-position {
+  display: flex;
+  justify-content: center;
+}
+
+.format-text-senha {
+  margin-top: 10%;
+  font-size: 4em;
+  text-align: center;
+  color: #ffc44f;
+}
+
+.label-ultimas-senhas {
+  display: block;
+  font-size: 2em;
+}
+
+.ml-auto{
+  margin-left: auto;
+}
+
+.subtitle {
+  width: 100%;
+  text-align: center;
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.container-ultimas-senhas {
+  background-color: #535981;
+  padding: 10px;
+}

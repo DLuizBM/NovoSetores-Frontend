@@ -1,0 +1,40 @@
+<div>
+
+  <div class="p-3 title">
+    <p>Gerenciamento de Filas</p>
+  </div>
+
+  <div class="p-3">
+    <table class="table table-hover mat-elevation-z4">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Prefixo</th>
+          <th>Senha Mínima</th>
+          <th>Senha Máxima</th>
+          <th>Excluir Fila</th>
+          <th>Editar Fila</th>
+        </tr>
+      </thead>
+      <tbody>
+       <tr *ngFor="let fila of filas">
+        <td>{{fila.nome}}</td>
+        <td>{{fila.prefixo}}</td>
+        <td>{{fila.senhaMinima}}</td>
+        <td>{{fila.senhaMaxima}}</td>
+         <td>
+           <button class="btn btn-danger" (click)="excluirFila(fila)">Excluir</button>
+         </td>
+        <td>
+          <button class="btn btn-primary" (click)="gerenciarFila(fila)">Editar</button>
+        </td>
+       </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="p-3">
+    <button class="btn btn-primary" (click)="gerenciarFila()">Adicionar Fila</button>
+  </div>
+
+</div>

@@ -1,0 +1,9 @@
+<body>
+  <div class="container-fila">
+    <div *ngFor="let fila of filas">
+      <button class="btn fila mat-elevation-z4" (click)="emitirSenha(fila)">
+        {{fila.nome}}
+      </button>
+    </div>
+  </div>
+</body>

@@ -1,0 +1,34 @@
+<body>
+  <header>
+    <mat-toolbar class="mat-elevation-z2" style="background-color: #535981;">
+      <span>Senhas Chamadas</span>
+    </mat-toolbar>
+  </header>
+  <main>
+    <div class="row">
+      <div class="col-sm-8 info-position">
+        <div class="format-text-senha">
+          <label>Senha</label>
+          <p>P 038</p>
+          <label>Guichê</label>
+          <p>01</p>
+        </div>
+      </div>
+      <div class="col-sm-4 info-position label-ultimas-senhas">
+        <div class="subtitle">
+           <label >Últimas senhas chamadas</label>
+        </div>
+        <div class="container-ultimas-senhas" *ngFor="let senha of senhasChamadas">
+          <div class="flex-container">
+            <p>Senha</p>
+            <p class="ml-auto">{{senha.senha}}</p>
+          </div>
+          <div class="flex-container">
+            <p>Guichê</p>
+            <p class="ml-auto">{{senha.guiche}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
