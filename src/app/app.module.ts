@@ -20,6 +20,7 @@ import { ModalEditarFilaComponent } from './components/shared/modal-editar-fila/
 import { MatDialogModule } from "@angular/material/dialog";
 import { ReactiveFormsModule } from "@angular/forms";
 import { ModalExcluirFilaComponent } from './components/shared/modal-excluir-fila/modal-excluir-fila.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { ModalExcluirFilaComponent } from './components/shared/modal-excluir-fil
     MatListModule,
     MatToolbarModule,
     MatDialogModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

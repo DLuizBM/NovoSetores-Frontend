@@ -2,7 +2,11 @@
   font-size: 2em;
 }
 
-.container-header {
+.container-text-icon {
   display: flex;
   align-items: center;
+}
+
+.mr-5 {
+  margin-right: 5px;
 }

@@ -13,6 +13,10 @@
       <input id="prefixo" type="text" class="form-control" formControlName="prefixo">
     </div>
     <div class="form-group mb-2">
+      <label for="textoInformativo">Texto Informativo:</label>
+      <input id="textoInformativo" type="text" class="form-control" formControlName="textoInformativo">
+    </div>
+    <div class="form-group mb-2">
       <label for="senhaMinima">Senha Mínima:</label>
       <input id="senhaMinima" type="text" class="form-control" formControlName="senhaMinima">
     </div>
@@ -23,5 +27,5 @@
   </form>
 
   <button class="btn btn-primary" (click)="submitFilaForm()">Salvar</button>
-  <button class="btn btn-warning float-right" (click)="close()">Cancelar</button>
+  <button class="btn btn-warning float-right" (click)="cancelar()">Cancelar</button>
 </div>

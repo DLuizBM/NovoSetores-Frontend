@@ -1,5 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {ServiceSetores} from "../service/service-setores";
 
 export interface DataDialog {
   data: any;
@@ -16,7 +17,8 @@ export class ModalExcluirFilaComponent implements OnInit{
 
   constructor(
     public modalRef: MatDialogRef<ModalExcluirFilaComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DataDialog
+    @Inject(MAT_DIALOG_DATA) public data: DataDialog,
+    private serviceSetores: ServiceSetores
   ) {}
 
   ngOnInit() {
@@ -28,7 +30,10 @@ export class ModalExcluirFilaComponent implements OnInit{
   }
 
   delete(): void {
-    console.log(this.dataDialog);
+    this.serviceSetores.deleteFile(this.dataDialog.id).subscribe({
+      next: value => this.close(),
+      error: err => console.log(err)
+    })
   }
 
 }

@@ -1,9 +1,15 @@
 <body>
   <div class="container-fila">
     <div *ngFor="let fila of filas">
-      <button class="btn fila mat-elevation-z4" (click)="emitirSenha(fila)">
+      <button *ngIf="!emitido" class="btn fila mat-elevation-z4" (click)="emitirSenha(fila)">
         {{fila.nome}}
       </button>
+    </div>
+    <div *ngIf="emitido" class="ticket mat-elevation-z7">
+      <p class="mt-5 font-2em">Senha</p>
+      <p class="font-2em">{{formatSenha(senhaEmitida)}}</p>
+      <p>{{senhaEmitida.fila.textoInformativo}}</p>
+      <p>{{formatData(senhaEmitida.dataEmissao)}}</p>
     </div>
   </div>
 </body>

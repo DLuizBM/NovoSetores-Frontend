@@ -10,6 +10,7 @@
         <tr>
           <th>Nome</th>
           <th>Prefixo</th>
+          <th>Texto Informativo</th>
           <th>Senha Mínima</th>
           <th>Senha Máxima</th>
           <th>Excluir Fila</th>
@@ -20,6 +21,7 @@
        <tr *ngFor="let fila of filas">
         <td>{{fila.nome}}</td>
         <td>{{fila.prefixo}}</td>
+         <td>{{fila.textoInformativo}}</td>
         <td>{{fila.senhaMinima}}</td>
         <td>{{fila.senhaMaxima}}</td>
          <td>
