@@ -1,5 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {CompatClient, Stomp} from "@stomp/stompjs";
+// @ts-ignore
+declare var SockJS;
+
 
 @Component({
   selector: 'app-painel-chamada',
@@ -8,23 +11,32 @@ import {CompatClient, Stomp} from "@stomp/stompjs";
 })
 export class PainelChamadaComponent implements OnInit{
 
-  senhasChamadas: any[] = [
-    {senha: "P 003", guiche: "01"},
-    {senha: "P 004", guiche: "02"},
-    {senha: "P 005", guiche: "03"}
-  ]
-
+  senhasChamadas: any[] = [];
+  senhasChamadasAux: any[] = [];
+  ultimaEmitida: any;
   client: CompatClient;
 
   constructor() {
-    this.client = Stomp.over(new WebSocket('ws://localhost:8080/painel'));
+    const serverUrl = "http://localhost:8080/ws";
+    const ws = new SockJS(serverUrl);
+    this.client = Stomp.over(ws);
+    const that = this;
+    this.client.connect({}, function() {
+      that.client.subscribe('/senha-chamada', (senha: any) => {
+        if (senha) {
+          if(that.senhasChamadas.length < 3){
+            that.senhasChamadas.push(JSON.parse(senha.body));
+          }else{
+            that.senhasChamadas.shift();
+            that.senhasChamadas.push(JSON.parse(senha.body));
+          }
+          that.senhasChamadasAux = that.senhasChamadas;
+          that.ultimaEmitida = JSON.parse(senha.body);
+        }
+      });
+    });
   }
   ngOnInit() {
-    this.client.connect({}, () => {
-      this.client.subscribe("/setores/painel", (data) =>{
-        console.log(data);
-      })
-    })
   }
 
 }

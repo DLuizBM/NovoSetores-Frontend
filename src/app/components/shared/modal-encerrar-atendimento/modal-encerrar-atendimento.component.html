@@ -1,0 +1,9 @@
+<div class="modal-encerramento">
+  <div class="alert alert-warning" style="width: 100%;" role="alert">
+    <h3>Para prosseguir com outro atendimento, encerre essa senha.</h3>
+  </div>
+  <p class="font-2em">Senha</p>
+  <p class="font-2em">{{dadosSenha.fila.ultimaChamada}}</p>
+  <p>{{dadosSenha.fila.nome}}</p>
+  <button class="btn btn-primary" (click)="encerrarAtendimento()">Encerrar Atendimento</button>
+</div>

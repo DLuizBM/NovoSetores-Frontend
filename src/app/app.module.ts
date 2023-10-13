@@ -21,6 +21,8 @@ import { MatDialogModule } from "@angular/material/dialog";
 import { ReactiveFormsModule } from "@angular/forms";
 import { ModalExcluirFilaComponent } from './components/shared/modal-excluir-fila/modal-excluir-fila.component';
 import { HttpClientModule } from "@angular/common/http";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
+import { ModalEncerrarAtendimentoComponent } from './components/shared/modal-encerrar-atendimento/modal-encerrar-atendimento.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,8 @@ import { HttpClientModule } from "@angular/common/http";
     AtendenteComponent,
     PainelControleSenhasComponent,
     ModalEditarFilaComponent,
-    ModalExcluirFilaComponent
+    ModalExcluirFilaComponent,
+    ModalEncerrarAtendimentoComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,8 @@ import { HttpClientModule } from "@angular/common/http";
     MatToolbarModule,
     MatDialogModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

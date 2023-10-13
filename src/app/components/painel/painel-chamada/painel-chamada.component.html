@@ -9,23 +9,23 @@
       <div class="col-sm-8 info-position">
         <div class="format-text-senha">
           <label>Senha</label>
-          <p>P 038</p>
-          <label>Guichê</label>
-          <p>01</p>
+          <p>{{ultimaEmitida.fila.prefixo + " " + ultimaEmitida.numeroSenha.toString().padStart(ultimaEmitida.fila.senhaMaxima.toString().length, "0")}}</p>
+          <label>{{ultimaEmitida.guiche.name}}</label>
+          <p>{{ultimaEmitida.guiche.id}}</p>
         </div>
       </div>
       <div class="col-sm-4 info-position label-ultimas-senhas">
         <div class="subtitle">
            <label >Últimas senhas chamadas</label>
         </div>
-        <div class="container-ultimas-senhas" *ngFor="let senha of senhasChamadas">
+        <div class="container-ultimas-senhas" *ngFor="let senha of senhasChamadasAux.reverse()">
           <div class="flex-container">
             <p>Senha</p>
-            <p class="ml-auto">{{senha.senha}}</p>
+            <p class="ml-auto">{{senha.fila.prefixo + " " + senha.numeroSenha.toString().padStart(senha.fila.senhaMaxima.toString().length, "0")}}</p>
           </div>
           <div class="flex-container">
-            <p>Guichê</p>
-            <p class="ml-auto">{{senha.guiche}}</p>
+            <p>{{senha.guiche.name}}</p>
+            <p class="ml-auto">{{senha.guiche.id}}</p>
           </div>
         </div>
       </div>

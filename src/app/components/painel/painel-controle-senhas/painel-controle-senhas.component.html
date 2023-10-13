@@ -7,24 +7,16 @@
       <thead>
         <tr>
           <th>Fila</th>
-          <th>
-            <div class="container-text-icon">
-              Pessoa na Fila <i class="material-icons">boy</i>
-            </div>
-          </th>
           <th>Última Chamada</th>
-          <th>Última Emitida</th>
           <th>Chamar Senhas</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let infoSenha of controleSenhas">
-          <td>{{infoSenha.nome}}</td>
-          <td>{{infoSenha.esperando}}</td>
-          <td>{{infoSenha.ultimaChamada}}</td>
-          <td>{{infoSenha.ultimaEmitida}}</td>
+        <tr *ngFor="let fila of filas">
+          <td>{{fila.nome}}</td>
+          <td>{{fila.ultimaChamada}}</td>
           <td>
-            <button class="btn btn-primary container-text-icon">
+            <button class="btn btn-primary container-text-icon" (click)="chamarProximaSenha(fila.id)">
               <span class="mr-5">Chamar Próxima Senha</span> <i class="material-icons">volume_up</i>
             </button>
           </td>
