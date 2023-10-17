@@ -11,7 +11,7 @@ import {
 
 export const routes: Routes = [
   {
-    path: "setores", component: PainelInicialComponent,
+    path: "", component: PainelInicialComponent,
     children: [
       {path: "", component: PainelControleSenhasComponent},
       {path: "fila", component: FilaComponent},

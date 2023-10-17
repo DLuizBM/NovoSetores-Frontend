@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {MatSnackBar} from "@angular/material/snack-bar";
+import {localhost, aws} from "../../../environments/environments";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ServiceSetores {
 
-  URL_BASE: string = "http://localhost:8080/";
+  URL_BASE: string = aws;
 
   constructor(public http: HttpClient, private snackBar: MatSnackBar) { }
 
@@ -50,6 +51,17 @@ export class ServiceSetores {
   encerrarAtendimento(idSenha: number): Observable<any> {
     const url: string = `${this.URL_BASE}senha/finalizar-atendimento-senha/${idSenha}`;
     return this.http.put<any>(url, undefined);
+  }
+
+  criarPontoAtendimentoDefault(): Observable<any>{
+    const url: string = `${this.URL_BASE}guiche`;
+    const pontoAtendimentoDefault = {name: "Guichê 1", guicheStatus: "UTILIZADO"};
+    return this.http.post<any>(url, pontoAtendimentoDefault);
+  }
+
+  obterGuiches(): Observable<any>{
+    const url: string = `${this.URL_BASE}guiche`;
+    return this.http.get<any>(url);
   }
 
   showMessage(msg: string, isError: boolean=false): void {

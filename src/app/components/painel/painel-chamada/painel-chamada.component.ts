@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CompatClient, Stomp} from "@stomp/stompjs";
-// @ts-ignore
-declare var SockJS;
+import {localhost, aws} from "../../../environments/environments";
+declare var SockJS: any;
 
 
 @Component({
@@ -17,7 +17,7 @@ export class PainelChamadaComponent implements OnInit{
   client: CompatClient;
 
   constructor() {
-    const serverUrl = "http://localhost:8080/ws";
+    const serverUrl = `${aws}ws`;
     const ws = new SockJS(serverUrl);
     this.client = Stomp.over(ws);
     const that = this;
